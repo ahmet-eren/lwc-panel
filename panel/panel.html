@@ -1,0 +1,19 @@
+<template>
+    <div class={panelClass} aria-hidden="false">
+        <template if:true={displayHeader}>
+            <div class="slds-panel__header">
+                <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header">{title}</h2>
+                <lightning-button-icon alternative-text="" class="slds-panel__close" icon-name="utility:close" size="small" variant="container" onclick={handleCloseClick}></lightning-button-icon>
+            </div>
+        </template>
+        <template if:true={customHeader}>
+            <div class="slds-panel__header slds-panel__header_custom">
+                <slot name="header"></slot>
+            </div>
+        </template>
+        <div class="slds-panel__body">
+            <slot></slot>
+            <slot name="content"></slot>
+        </div>
+    </div>
+</template>
